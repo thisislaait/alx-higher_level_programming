@@ -3,7 +3,7 @@
 #include "lists.h"
 /**
  * check_cycle - checks for cycles in loop
- * @list: list to take in
+ * @list: list to execute
  * Return: integer value
  */
 int check_cycle(listint_t *list)
