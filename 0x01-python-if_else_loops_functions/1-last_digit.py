@@ -13,4 +13,3 @@ elif(lastDigit == 0):
     print(first + "{} is {} and is 0".format(number, lastDigit))
 else:
     print(first + "{} is {}".format(number, lastDigit) + last)
-    
