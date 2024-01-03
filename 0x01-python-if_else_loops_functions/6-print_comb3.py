@@ -5,4 +5,4 @@ for i in range(10):
             print("{}".format(str(i) + str(j)))
         elif(j > i):
             print("{}".format(str(i) + str(j)) + ", ", end="")
-            
+    

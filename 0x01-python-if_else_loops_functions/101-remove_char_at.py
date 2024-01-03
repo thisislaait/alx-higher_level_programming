@@ -4,4 +4,3 @@ def remove_char_at(str, n):
         return(str)
     else:
         return(str.replace(str[n], ""))
-        
