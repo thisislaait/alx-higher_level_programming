@@ -54,6 +54,7 @@ Python is easily extendable with new functions and data types implemented in C, 
 ## Projects
 
 - **0x00-python-hello_world**
+- **0x01-python-if_else_loops_functions**
 
 Feel free to explore the world of Python with me and enjoy your learning journey!
 
