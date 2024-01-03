@@ -8,3 +8,4 @@ def fizzbuzz():
             result += "Buzz"
         print("{}".format(result) or "{}".format(i), end='')
         print(" ", end='')
+        
