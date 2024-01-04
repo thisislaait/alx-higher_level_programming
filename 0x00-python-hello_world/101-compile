@@ -1,4 +1,4 @@
 #!/bin/bash
 python3 -m py_compile "$PYFILE"
-cp __pycache__/* "$PYFILE"c
+mv "${PYFILE}c" "$(basename "$PYFILE" .py)c"
 rm -rf __pycache__
