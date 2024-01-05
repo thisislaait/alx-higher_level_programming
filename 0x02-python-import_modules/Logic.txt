@@ -1,0 +1,54 @@
+Question 0: Import a simple function from a simple file
+
+a) Check if the script is being run directly:
+
+Utilize the conditional statement if __name__ == "__main__": to ensure the script is executed directly.
+b) Import the add function from add_0.py:
+
+Use the from add_0 import add statement to import the add function from the add_0.py file.
+c) Define variables a and b with values 1 and 2, respectively:
+
+Create two variables a and b and assign values 1 and 2 to them, respectively.
+d) Call the add function with a and b and store the result:
+
+Invoke the add function, passing variables a and b as arguments, and store the result.
+e) Print the result using the specified format:
+
+Utilize the print function with the format specified in the question to display the result of the addition.
+
+
+Question 1: Import functions from calculator_1.py, do some Maths, and print the result
+
+a) Check if the script is being run directly.
+b) Import functions add, sub, mul, and div from calculator_1.py.
+c) Define variables a and b with values 10 and 5, respectively.
+d) Perform mathematical operations using the imported functions and store the results.
+e) Print the results using the specified format, limiting the use of print statements.
+
+Question 2: How to make a script dynamic!
+
+a) Check if the script is being run directly.
+b) Import the sys module to access command-line arguments.
+c) Calculate the number of arguments (args) using len(sys.argv).
+d) Print the count of arguments and list each argument if there are any.
+e) Display the position and values of each argument in a structured format.
+
+Question 3: Infinite addition
+
+a) Check if the script is being run directly.
+b) Import the sys module to access command-line arguments.
+c) Use a list comprehension to sum all integer arguments after converting them.
+d) Print the total sum of all arguments.
+
+Question 4: Who are you?
+
+a) Check if the script is being run directly.
+b) Import the hidden_4 module.
+c) Use the dir function to get a list of names defined in hidden_4.
+d) Filter and print names that do not start with '__'.
+
+Question 5: Everything can be imported
+
+a) Check if the script is being run directly.
+b) Import the variable 'a' from variable_load_5.py.
+c) Print the value of variable 'a'.
