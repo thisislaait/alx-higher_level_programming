@@ -1,7 +1,7 @@
 #!/usr/bin/python3
+"""Define a MagicClass matching exactly a pre provided bytecode"""
 
 import math
-
 
 class MagicClass:
     def __init__(self, radius=0):
