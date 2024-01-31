@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """matrix divider module"""
+
 def matrix_divided(matrix, div):
     """divides a matrix all elements by divider
     """

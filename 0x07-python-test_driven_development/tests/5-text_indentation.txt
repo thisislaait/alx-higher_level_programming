@@ -1,0 +1,30 @@
+"""
+Test Documentation for text_indentation Function
+"""
+
+def test_text_indentation():
+    """
+    Test cases for the text_indentation function.
+    """
+    # Test case 1: Basic usage with a simple text
+    text = "This is a sample text. It has multiple sentences. Each ends with a period."
+    result = text_indentation(text)
+    expected_result = "This is a sample text.\nIt has multiple sentences.\nEach ends with a period."
+    assert result == expected_result, f"Expected {expected_result}, but got {result}"
+
+    # Test case 2: Text with line breaks
+    text = "This is a line with a break.\nAnd this is another line."
+    result = text_indentation(text)
+    expected_result = "This is a line with a break.\n\nAnd this is another line."
+    assert result == expected_result, f"Expected {expected_result}, but got {result}"
+
+    # Test case 3: Non-string input
+    try:
+        text_indentation(123)
+    except TypeError as e:
+        assert str(e) == "text must be a string", f"Expected 'text must be a string', but got {e}"
+
+    print("All test cases passed!")
+
+# Run the test cases
+test_text_indentation()

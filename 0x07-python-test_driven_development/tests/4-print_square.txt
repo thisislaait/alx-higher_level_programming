@@ -1,0 +1,36 @@
+"""
+Test Documentation for print_square Function
+"""
+
+def test_print_square():
+    """
+    Test cases for the print_square function.
+    """
+    # Test case 1: Basic usage with size 3
+    size = 3
+    result = print_square(size)
+    expected_result = "###\n###\n###"
+    assert result == expected_result, f"Expected {expected_result}, but got {result}"
+
+    # Test case 2: Basic usage with size 0
+    size = 0
+    result = print_square(size)
+    expected_result = ""
+    assert result == expected_result, f"Expected {expected_result}, but got {result}"
+
+    # Test case 3: Non-integer size
+    try:
+        print_square("abc")
+    except TypeError as e:
+        assert str(e) == "size must be an integer", f"Expected 'size must be an integer', but got {e}"
+
+    # Test case 4: Negative size
+    try:
+        print_square(-5)
+    except ValueError as e:
+        assert str(e) == "size must be >= 0", f"Expected 'size must be >= 0', but got {e}"
+
+    print("All test cases passed!")
+
+# Run the test cases
+test_print_square()

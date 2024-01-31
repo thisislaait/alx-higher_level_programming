@@ -1,0 +1,62 @@
+"""
+Test Documentation for add_integer Function
+"""
+
+def test_add_integer():
+    """
+    Test cases for the add_integer function.
+    """
+    # Test case 1: Basic addition
+    result = add_integer(2, 3)
+    assert result == 5, f"Expected 5, but got {result}"
+
+    # Test case 2: Addition with floating-point values
+    result = add_integer(2.0, 3.0)
+    assert result == 5, f"Expected 5, but got {result}"
+
+    # Test case 3: Default value for b
+    result = add_integer(0)
+    assert result == 98, f"Expected 98, but got {result}"
+
+    # Test case 4: Default value for b with a floating-point value
+    result = add_integer(2.0)
+    assert result == 100, f"Expected 100, but got {result}"
+
+    # Test case 5: Addition with negative and floating-point values
+    result = add_integer(-5.5, 100.3)
+    assert result == 95, f"Expected 95, but got {result}"
+
+    # Test case 6: Non-integer value for a
+    try:
+        add_integer('a', 3)
+    except TypeError as e:
+        assert str(e) == "a must be an integer", f"Expected 'a must be an integer', but got {e}"
+
+    # Test case 7: Non-integer value for b
+    try:
+        add_integer(2, ['A', 'B', 'C'])
+    except TypeError as e:
+        assert str(e) == "b must be an integer", f"Expected 'b must be an integer', but got {e}"
+
+    # Test case 8: Non-integer value for a in a dictionary
+    try:
+        add_integer({'a': 1})
+    except TypeError as e:
+        assert str(e) == "a must be an integer", f"Expected 'a must be an integer', but got {e}"
+
+    # Test case 9: OverflowError with float infinity
+    try:
+        add_integer(float('inf'))
+    except OverflowError as e:
+        assert str(e) == "cannot convert float infinity to integer", f"Expected 'cannot convert float infinity to integer', but got {e}"
+
+    # Test case 10: ValueError with float NaN
+    try:
+        add_integer(float('NaN'))
+    except ValueError as e:
+        assert str(e) == "cannot convert float NaN to integer", f"Expected 'cannot convert float NaN to integer', but got {e}"
+
+    print("All test cases passed!")
+
+# Run the test cases
+test_add_integer()
