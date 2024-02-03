@@ -2,36 +2,64 @@
 Test Documentation for say_my_name Function
 """
 
-def test_say_my_name():
-    """
-    Test cases for the say_my_name function.
-    """
-    # Test case 1: Basic usage with both first and last names
-    first_name = "John"
-    last_name = "Doe"
-    result = say_my_name(first_name, last_name)
-    expected_result = f"My name is {first_name} {last_name}"
-    assert result == expected_result, f"Expected {expected_result}, but got {result}"
+Usage
+=====
 
-    # Test case 2: Basic usage with only the first name
-    first_name = "Jane"
-    result = say_my_name(first_name)
-    expected_result = f"My name is {first_name} "
-    assert result == expected_result, f"Expected {expected_result}, but got {result}"
+``say_my_name(...)`` prints "My name is <first_name> <last_name>".
 
-    # Test case 3: Non-string first name
-    try:
-        say_my_name(123, last_name)
-    except TypeError as e:
-        assert str(e) == "first_name must be a string", f"Expected 'first_name must be a string', but got {e}"
+::
 
-    # Test case 4: Non-string last name
-    try:
-        say_my_name(first_name, 456)
-    except TypeError as e:
-        assert str(e) == "last_name must be a string", f"Expected 'last_name must be a string', but got {e}"
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+    >>> say_my_name("Brennan", "Baraban")
+    My name is Brennan Baraban
 
-    print("All test cases passed!")
+::
 
-# Run the test cases
-test_say_my_name()
+    >>> say_my_name("Cornelius Maxwell", "Jones II")
+    My name is Cornelius Maxwell Jones II
+
+The parameter ```last_name``` is optional. If no last name is provided,
+an empty string is printed instead.
+
+::
+
+    >>> say_my_name("Brennan")
+    My name is Brennan 
+
+Invalid Names
+=============
+
+The parameters ``first_name`` and ``last_name``` must be strings. Otherwise,
+a TypeError is raised.
+
+::
+
+    >>> say_my_name(6, "James")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+::
+
+    >>> say_my_name("LeBron", ["Cavs", "Lakers", "Heat"])
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+::
+
+    >>> say_my_name({"LeBron": 6, "James": 23}, 7.7)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+::
+
+    >>> say_my_name(None)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+At least one name must be provided.
+
+::
+
+    >>> say_my_name()
+    Traceback (most recent call last):
+    TypeError: say_my_name() missing 1 required positional argument: 'first_name'
