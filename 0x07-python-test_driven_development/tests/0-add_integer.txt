@@ -2,61 +2,120 @@
 Test Documentation for add_integer Function
 """
 
-def test_add_integer():
-    """
-    Test cases for the add_integer function.
-    """
-    # Test case 1: Basic addition
-    result = add_integer(2, 3)
-    assert result == 5, f"Expected 5, but got {result}"
+Usage
+=====
 
-    # Test case 2: Addition with floating-point values
-    result = add_integer(2.0, 3.0)
-    assert result == 5, f"Expected 5, but got {result}"
+``add_integer(...)``` returns the addition of its two arguments. For numbers,
+that value is equivalent to using the ``+`` operator.
 
-    # Test case 3: Default value for b
-    result = add_integer(0)
-    assert result == 98, f"Expected 98, but got {result}"
+::
 
-    # Test case 4: Default value for b with a floating-point value
-    result = add_integer(2.0)
-    assert result == 100, f"Expected 100, but got {result}"
+    >>> add_integer = __import__('0-add_integer').add_integer
+    >>> add_integer(2, 3)
+    5
 
-    # Test case 5: Addition with negative and floating-point values
-    result = add_integer(-5.5, 100.3)
-    assert result == 95, f"Expected 95, but got {result}"
+::
 
-    # Test case 6: Non-integer value for a
-    try:
-        add_integer('a', 3)
-    except TypeError as e:
-        assert str(e) == "a must be an integer", f"Expected 'a must be an integer', but got {e}"
+    >>> add_integer(2, -3)
+    -1
 
-    # Test case 7: Non-integer value for b
-    try:
-        add_integer(2, ['A', 'B', 'C'])
-    except TypeError as e:
-        assert str(e) == "b must be an integer", f"Expected 'b must be an integer', but got {e}"
+The function also works with floating-point values.
 
-    # Test case 8: Non-integer value for a in a dictionary
-    try:
-        add_integer({'a': 1})
-    except TypeError as e:
-        assert str(e) == "a must be an integer", f"Expected 'a must be an integer', but got {e}"
+::
 
-    # Test case 9: OverflowError with float infinity
-    try:
-        add_integer(float('inf'))
-    except OverflowError as e:
-        assert str(e) == "cannot convert float infinity to integer", f"Expected 'cannot convert float infinity to integer', but got {e}"
+    >>> add_integer(2.0, 3.0)
+    5
 
-    # Test case 10: ValueError with float NaN
-    try:
-        add_integer(float('NaN'))
-    except ValueError as e:
-        assert str(e) == "cannot convert float NaN to integer", f"Expected 'cannot convert float NaN to integer', but got {e}"
+Note that floats are casted to ints before addition is performed.
 
-    print("All test cases passed!")
+::
 
-# Run the test cases
-test_add_integer()
+    >>> add_integer(2.9, 0.2)
+    2
+
+::
+
+    >>> add_integer(-2.9, -0.2)
+    -2
+
+Floating and non-floating point values can be combined.
+
+::
+
+    >>> add_integer(2.3, -3)
+    -1
+
+The second argument is optional - by default, it is 98.
+
+::
+
+    >>> add_integer(2)
+    100
+
+Non-Numbers
+===========
+
+``add_integer()`` expects that both arguments are either integers or floats.
+If either argument is a non-integer and non-float, a TypeError is raised:
+
+::
+
+    >>> add_integer("hello", 3)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+::
+
+    >>> add_integer(2, "hello")
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+::
+
+    >>> add_integer(None)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+::
+
+    >>> add_integer(2.3, None)
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+If both arguments are non-integers and non-floats, a TypeError message is only
+printed for the first argument.
+
+::
+
+    >>> add_integer("hello", "there")
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+The function will fail if infinity is provided.
+
+::
+
+    >>> add_integer(float('inf'))
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
+     
+
+::
+
+    >>> add_integer(2, float('inf'))
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
+
+And again with NaN numbers.
+
+::
+
+    >>> add_integer(float('nan'))
+    Traceback (most recent call last):
+    ValueError: cannot convert float NaN to integer
+
+::
+
+    >>> add_integer(2, float('nan'))
+    Traceback (most recent call last):
+    ValueError: cannot convert float NaN to integer
