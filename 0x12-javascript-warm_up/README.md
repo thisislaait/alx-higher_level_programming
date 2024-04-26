@@ -1,5 +1,4 @@
-
-0. First constant, first print
+#First constant, first print
 
 0-javascript_is_amazing.js: JavaScript script that creates a constant variable myVar with the value 'Javascript is amazing'.
 Usage: ./0-javascript_is_amazing.js
